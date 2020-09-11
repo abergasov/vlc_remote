@@ -5,11 +5,16 @@ import (
 	"go.uber.org/zap/zapcore"
 )
 
-func InitLogger() *zap.Logger {
+var aLogger *zap.Logger
+
+func InitLogger() {
 	config := zap.NewDevelopmentConfig()
 	config.EncoderConfig.EncodeLevel = zapcore.CapitalColorLevelEncoder
 	config.EncoderConfig.TimeKey = "timestamp"
 	config.EncoderConfig.EncodeTime = zapcore.ISO8601TimeEncoder
-	logger, _ := config.Build()
-	return logger
+	aLogger, _ = config.Build()
+}
+
+func Error(message string, err error) {
+	aLogger.Error(message, zap.Error(err))
 }

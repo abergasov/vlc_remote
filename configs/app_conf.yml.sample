@@ -1,1 +1,6 @@
 app_port: 2221
+media_dir: /media/usb1
+vlc_port: 8080
+vlc_host: 192.168.1.1
+vlc_password: 12345
+vlc_login: user

@@ -9,7 +9,13 @@ import (
 )
 
 type AppConfig struct {
-	AppPort string `yaml:"app_port"`
+	AppPort   string `yaml:"app_port"`
+	MediaRoot string `yaml:"media_dir"`
+
+	VlcHost     string `yaml:"vlc_host"`
+	VlcPort     string `yaml:"vlc_port"`
+	VlcPassword string `yaml:"vlc_password"`
+	VlcLogin    string `yaml:"vlc_login"`
 }
 
 func InitConf() *AppConfig {
